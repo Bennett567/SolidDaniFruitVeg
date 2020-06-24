@@ -1,6 +1,7 @@
 import 'dart:developer';
 
-import '../fruit.dart';
+import '../Classes/fruit.dart';
+
 
 class FruitService {
   

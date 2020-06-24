@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import '../vegetable.dart';
+import '../Classes/vegetable.dart';
 class VegetableService {
   
   void create() {
