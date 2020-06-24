@@ -1,5 +1,5 @@
 class Fruit {
-  int quantity;
+  int quantity; //What is quantity? If there are more than one of this fruit, it should be a List<Fruit>, but not in this class
   int seeds;
   String colour;
   bool goodTaste;
@@ -7,7 +7,7 @@ class Fruit {
   Fruit(this.quantity, this.seeds, this.colour, this.goodTaste);
 }
 
-class Berry extends Fruit {
+class Berry extends Fruit { //please separate classes, each into it's own file. Look out for Dart file naming conventions. (different layers into diferent folders)
   int diameter;
 
   Berry(int quantity, int seeds, String colour, bool goodTaste, this.diameter)
@@ -15,7 +15,7 @@ class Berry extends Fruit {
 }
 
 class Southern extends Fruit {
-  int numberOfImport;
+  int numberOfImport; //What is this?
   String shape;
 
   Southern(int quantity, int seeds, String colour, bool goodTaste,
@@ -23,7 +23,7 @@ class Southern extends Fruit {
       : super(quantity, seeds, colour, goodTaste);
 }
 
-class CRUD {
+class CRUD { //CRUD is not a class name. This should be some kind of service, for example BaseService
   void create() {
     print("Succsessfully created!");
   }
@@ -41,9 +41,9 @@ class CRUD {
   }
 }
 
-class FruitService extends CRUD {}
+class FruitService extends CRUD {} //make it so that the operation prints include a field variable in them (example: 'Something ${Fruit.color} is created')
 
-class FruitRepo extends FruitService {
+class FruitRepo extends FruitService {. //repo does not extends service, the two are totally different layers. Service should be injected into the repo
   void tomato() {
     read();
   update();
@@ -51,7 +51,7 @@ class FruitRepo extends FruitService {
 }}
 
 class Vegetable {
-  int quantity;
+  int quantity; //same here
   int seeds;
   String colour;
   bool goodTaste;
@@ -78,8 +78,8 @@ class MainPlant extends Vegetable {
 class VegetableService extends CRUD {
  
 }
-class VegetableRepo extends VegetableService {
-  void melon() {
+class VegetableRepo extends VegetableService {. //repo does not extends sevice, this makes strongly coupled code, and remember, we want the modules that are easy to change out. Please use dependency injection.
+  void melon() { //why melon? please name the methods in a way that it tells you about what the method does. also, method names are verbs by convention
   read();
   update();
   
